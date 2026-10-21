@@ -1,0 +1,8 @@
+langgraph
+langgraph-supervisor
+langchain-core
+langchain-litellm
+langgraph-swarm
+litellm==1.105.1
+httpx
+fastapi

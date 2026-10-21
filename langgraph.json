@@ -1,0 +1,9 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "megan": "./megan/agent.py:app",
+    "weather_time_agent": "./weather_time_agent/agent.py:root_agent",
+    "search_agent": "./search_agent/agent.py:root_agent"
+  },
+  "env": ".env"
+}
