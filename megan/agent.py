@@ -3,8 +3,8 @@ from langgraph.prebuilt import create_react_agent
 from langgraph_swarm import create_swarm, create_handoff_tool
 
 from common.config import FORMATO_WHATSAPP, MODELO_PRINCIPAL
-from weather_time_agent.agent import DESCRIPTION as WEATHER_DESCRIPTION, build_agent as build_weather_agent
-from search_agent.agent import DESCRIPTION as SEARCH_DESCRIPTION, build_agent as build_search_agent
+from megan.specialist.weather_time_agent.agent import DESCRIPTION as WEATHER_DESCRIPTION, build_agent as build_weather_agent
+from megan.specialist.search_agent.agent import DESCRIPTION as SEARCH_DESCRIPTION, build_agent as build_search_agent
 
 MEGAN_STATIC = (
     "Você é a Megan, secretária pessoal. Você é prestativa, educada e "

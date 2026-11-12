@@ -23,6 +23,32 @@ Cada agente carrega sua própria ferramenta de transferência (*handoff tool*) p
 
 ---
 
+## 📁 Estrutura do projeto
+
+A organização das pastas espelha a hierarquia dos agentes: a **megan** é o pacote raiz e orquestradora, e cada especialista vive dentro dela, em `megan/specialist/`, com sua própria pasta.
+
+```
+Agent_langgraph/
+├── megan/                        # ✨ orquestradora (monta o swarm)
+│   ├── agent.py                  #    instrução da megan + create_swarm → `app`
+│   └── specialist/               #    especialistas subordinados à megan
+│       ├── weather_time_agent/
+│       │   └── agent.py          # 🌦️ clima e horário (Open-Meteo)
+│       └── search_agent/
+│           └── agent.py          # 🔎 pesquisa na web (DuckDuckGo)
+├── common/                       # 🧩 infraestrutura compartilhada
+│   ├── config.py                 #    modelo (LiteLLM) e formatação para WhatsApp
+│   └── checkpointer.py           #    persistência (SQLite / Postgres)
+├── langgraph.json                # grafos expostos ao LangGraph Studio
+└── requirements.txt
+```
+
+Cada especialista expõe a mesma interface — uma `DESCRIPTION` (usada pela megan para decidir a transferência) e uma fábrica `build_agent()` — e é importado pela megan como `megan.specialist.<nome>.agent`. Para adicionar um novo especialista, basta criar uma nova pasta em `megan/specialist/` seguindo esse contrato e registrá-lo no swarm em `megan/agent.py`.
+
+O `langgraph.json` publica o swarm completo (`megan`) e também cada especialista isoladamente, para que possam ser testados individualmente no Studio.
+
+---
+
 ## 👩‍💼 megan — orquestradora
 
 Conversa geral, dúvidas de conhecimento geral, ajuda com textos e ideias. Decide para qual especialista transferir cada pedido, com base na descrição de cada um — e evita inventar informação quando nenhum especialista atende o pedido.
