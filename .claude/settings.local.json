@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"c:\\\\Users\\\\bmartins8\\\\Desktop\\\\Agent_LangGraph\\\\\" 2>&1)",
+      "Read(//c/Users/bmartins8/Desktop/**)",
+      "Read(//c/Users/bmartins8/**)",
+      "Bash(./.venv/Scripts/python.exe -c ' *)",
+      "Bash(./.venv/Scripts/python.exe -m pip show langchain-litellm)",
+      "Bash(./.venv/Scripts/python.exe -m pip index versions langchain-litellm)",
+      "Bash(./.venv/Scripts/python.exe -m pip install langchain-litellm --quiet)",
+      "Bash(./.venv/Scripts/python.exe -m pip list)",
+      "Bash(./.venv/Scripts/python.exe -m pip install langgraph-checkpoint-postgres --quiet)",
+      "Bash(./.venv/Scripts/python.exe -m pip install \"psycopg[binary,pool]\" --quiet)",
+      "Bash(./.venv/Scripts/python.exe -m pip show python-dotenv)",
+      "Bash(./.venv/Scripts/python.exe -m pip install langgraph-checkpoint-sqlite --quiet)",
+      "Bash(MODELO_PRINCIPAL=gemini/gemini-3.8-flash ./.venv/Scripts/python.exe -c ' *)",
+      "Bash(rm -f _test_session.db)",
+      "Bash(MODELO_PRINCIPAL_OVERRIDE=1 ./.venv/Scripts/python.exe -c ' *)",
+      "Bash(./.venv/Scripts/python.exe -m pip install langgraph-swarm --quiet)",
+      "Bash(./.venv/Scripts/python.exe -m pip index versions ddgs)",
+      "Bash(./.venv/Scripts/python.exe -m pip index versions duckduckgo-search)",
+      "Bash(./.venv/Scripts/python.exe -m pip install ddgs --quiet)"
+    ]
+  }
+}
